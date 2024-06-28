@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch() Function</title>
+</head>
+<body>
+    <h2>1. The Fetch() Function</h2>
+    <h2>2. Resources: MDN Web Docs</h2>
+    <ul>
+        <li>Call fetch function with its path (URL)</li>
+        <li>response (Promise)</li>
+        <li>text</li>
+        <li>blob(img)</li>
+        <li>json</li>
+    </ul>
+    <h2>3. Complete data stream</h2>
+    <h2>4. Make an image element seen with the data</h2>
+    <h2>5. Catch Errors</h2>
+    <h2>6. Make code concise and readable using Async & Await</h2>
+    <br>
+    <h3>Additional exercise:</h3>
+    <h3>Can you fetch multiple images?</h3>
+    <h3>Can you fetch a text file?</h3>
+    <div>
+        <img src="" id="rainbow" style="width:480px"/>
+        <script>
+            console.log('About to fetch a photo')
+
+            catchRainbow()
+                .then (response => {
+                    console.log('yay!')
+                })
+                .catch(error => {
+                    console.log('error!');
+                    console.error(error);
+                });
+
+            async function catchRainbow() {
+                const response = await fetch('rainbow.jpg');
+                const blob = await response.blob();
+                document.getElementById('rainbow').src = URL.createObjectURL(blob);
+            }
+
+            // fetch('rainbow.jpg').then(response => {
+            //     console.log(response);
+            //     return response.blob();
+            // })
+            // .then(blob => {
+            //     console.log(blob);
+            //     document.getElementById('rainbow').src = URL.createObjectURL(blob);
+            // })
+        </script>
+    </div>
+</body>
+</html>
